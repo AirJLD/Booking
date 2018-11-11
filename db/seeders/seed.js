@@ -7,6 +7,8 @@ const {
 const seedData = require('../seeders/data.js');
 const db = require('../index.js');
 
+const database = process.env.RDS_DB_NAME || 'airjld';
+
 const genAmountOf = {
   users: 200,
   customers: 200,
@@ -15,7 +17,7 @@ const genAmountOf = {
 };
 
 const insertSampleData = () => {
-  db.query(`CREATE DATABASE IF NOT EXISTS ${process.env.RDS_DB_NAME || 'airjld'};`)
+  db.query(`CREATE DATABASE IF NOT EXISTS ${database};`)
     .then(() => db.sync({ force: true }))
     .then(() => User.bulkCreate(seedData.users))
     .then(() => Listing.bulkCreate(seedData.listings))
