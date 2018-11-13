@@ -47,9 +47,9 @@ app.get('/rooms/:listingId', (req, res) => {
 });
 
 app.post('/booking', (req, res) => {
-  db.booking.set(req.body)
-    .then(() => { res.send('Booking successful. Enjoy!').end(); })
-    .catch(() => { res.status(500).send('Could not create booking. Please try again').end(); });
+  // db.booking.set(req.body)
+  //   .then(() => { res.send('Booking successful. Enjoy!').end(); })
+  //   .catch(() => { res.status(500).send('Could not create booking. Please try again').end(); });
 });
 
 module.exports = app;
